@@ -1,16 +1,19 @@
 language: node_js
 sudo: true
 dist: trusty
-
 node_js:
-    - '6.9.1'
-
+- 6.9.1
 branches:
   only:
-    - master
-    
+  - master
 before_script:
-    - ng set --global warnings.packageDeprecation=false
-    
+- ng set --global warnings.packageDeprecation=false
 script:
-    - ng build --prod
+- ng build --prod
+deploy:
+  provider: releases
+  api_key:
+    secure: TWhWg2fL9FXaVa6nMVDRTH77mS/BvlZwTkiGx+RkTS7xHBpkUT5jzTVeV1+Qn+VQD2+A+mp9pQcp8mRMKb3d4rSo4e6NobMg56mFLzsACRN68JjzNOOd+ELYKO8wPEYfG+fZj/pDGkuIpTX2WjuOGbh99u4PbLXIjzdP6DY/1sD49/kYP4nJUGvP2QQRH2dN05eFVQ0rbUJ4lZwFv95rbJ2/EXx4a3JlwQ7r2DPx+9QTRL9LVpE5E7WN/lj7HLuZYm/pcOkXw+rq/Y51fno88AF5C8IarD6KojdsfWo6MkiRnbDUoViiCGzMeZLMbJysoQoA3q+SyCuanwW7hYk5gcFFAelfVeaezzB4L0uxrwlHLqpuPzvY4X8FN+Rwy9thAIPs9nkEmaWFr/7QH+f6TuQcaBXzwfcaNzo4DrvTGDoxyYSkWophTJj9Dp2yhMRWgdPzeTuAF8k/MwqRmkolmBI3ecqcJQ8XQ8KXCpAFP9Gi6g6a3WLR8mfCTae0vAIGXwU3CY1vdP58gqqj8fe8Iqm/Preb6yZaE+gdijeMgL7NVewd+X0JQ5NYIsvueQZCWx9EqRRAr/Esjg6FMgjkSA9JJ1tc49Z6YARmvKeekHDHPE1oTHqhGD7VSvnK4jSZ9lGKDYBGqIpvg9qfcuX0IDOjQQYwGY8R9GBbmbBHkWo=
+  file: "./dist/"
+  on:
+    repo: Deepankar-promact/Flasher
