@@ -8,6 +8,7 @@ node_js:
 branches:
   only:
     - master
-
+before_script:
+    - ng set --global warnings.packageDeprecation=false
 script:
     - ng build --prod
